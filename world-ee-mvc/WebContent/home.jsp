@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>World Countries</title>
+<title>World Countries v5</title>
 </head>
 <body>
 	<form action="list" method="post">
@@ -15,7 +15,14 @@
 		        name="continent">
 		     <c:forEach items="${continents}"
 		                var="cont">
-		      <option label="${cont}">${cont}</option>       
+		      <c:choose>
+		      	<c:when test="${param.continent eq cont}">
+		      		<option selected label="${cont}">${cont}</option>       
+		      	</c:when>
+		      	<c:otherwise>
+		      		<option label="${cont}">${cont}</option>       
+		      	</c:otherwise>
+		      </c:choose>          
 		     </c:forEach>   
 		 </select>
 		<button>List</button>        
