@@ -1524,10 +1524,7 @@ public class InMemoryMovieService implements MovieService {
 	@Named("genres")
 	@Singleton
 	public Collection<Genre> findAllGenres() {
-		return genres.values()
-				.stream()
-				.sorted(Comparator.comparing(Genre::getName))
-				.collect(Collectors.toList());
+		return genres.values().stream().sorted(Comparator.comparing(Genre::getName)).collect(Collectors.toList());
 	}
 
 	@Override
