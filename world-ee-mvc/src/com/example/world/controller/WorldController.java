@@ -30,6 +30,7 @@ public class WorldController extends HttpServlet {
 	    List<Country> countries = 
 	    		countryDao.findCountriesByContinent(
 	    				continent);
+	    System.out.println(countryDao.getClass());
 	    // JSP: ${countries}
 	    request.setAttribute("countries", countries);
 	    request.getRequestDispatcher("home.jsp")

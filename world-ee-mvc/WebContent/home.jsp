@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +10,12 @@
 </head>
 <body>
 	<form action="list" method="post">
-		<util:select name="continent" 
-		             label="Continent" 
-		             options="${continents}"></util:select>	
+		<util:select name="continent" label="Continent"
+			options="${continents}"></util:select>
 		<button>List</button>
 	</form>
-	<util:table items="${countries}" 
-	     columns="Code,Name,Population,Surface Area" 
-	    props="code,name,population,surfaceArea"></util:table>
+	<util:table items="${countries}"
+		columns="Code,Name,Population,Surface Area"
+		props="code,name,population,surfaceArea"></util:table>
 </body>
 </html>
