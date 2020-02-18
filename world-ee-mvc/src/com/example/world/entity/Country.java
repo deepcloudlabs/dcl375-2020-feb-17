@@ -36,7 +36,7 @@ public class Country {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
+    // JSP : ${country.name}
 	public String getName() {
 		return name;
 	}
