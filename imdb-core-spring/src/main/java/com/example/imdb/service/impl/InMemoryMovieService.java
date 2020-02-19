@@ -9,11 +9,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Repository;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 
 import com.example.imdb.entity.Director;
 import com.example.imdb.entity.Genre;
@@ -27,16 +25,18 @@ import com.example.imdb.view.CriteriaBean;
  * @author Binnur Kurt
  *
  */
-@Repository
-@Scope("singleton")
-@Lazy
+//@Repository
+@Named
+@Singleton
 public class InMemoryMovieService implements MovieService {
+//	@Resource
+//	@Autowired
+	@Inject
 	private SequenceService sequenceSrv;
 	private Map<Integer, Movie> movies;
 	private Map<Integer, Genre> genres;
 	private Map<Integer, Director> directors;
 
-	@Autowired
 	public void setSequenceSrv(SequenceService sequenceSrv) {
 		System.err.println("setSequenceSrv");
 		this.sequenceSrv = sequenceSrv;
