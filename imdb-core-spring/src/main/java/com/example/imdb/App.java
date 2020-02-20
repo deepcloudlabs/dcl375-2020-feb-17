@@ -3,8 +3,6 @@ package com.example.imdb;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.example.imdb.config.AppConfig;
-import com.example.imdb.config.DbDevConfig;
 import com.example.imdb.service.MovieService;
 
 public class App {
