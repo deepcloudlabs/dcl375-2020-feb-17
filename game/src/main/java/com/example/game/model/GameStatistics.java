@@ -3,6 +3,8 @@ package com.example.game.model;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.concurrent.TimeUnit;
+
 @Component
 @SessionScope
 public class GameStatistics {
@@ -42,36 +44,28 @@ public class GameStatistics {
         this.total = total;
     }
 
-    public int getTotalWinMoves() {
-        return totalWinMoves;
-    }
-
-    public void setTotalWinMoves(int totalWinMoves) {
-        this.totalWinMoves = totalWinMoves;
-    }
-
     public double getAvgWinMoves() {
-        return avgWinMoves;
-    }
-
-    public void setAvgWinMoves(double avgWinMoves) {
-        this.avgWinMoves = avgWinMoves;
-    }
-
-    public long getTotalWinTime() {
-        return totalWinTime;
-    }
-
-    public void setTotalWinTime(long totalWinTime) {
-        this.totalWinTime = totalWinTime;
+        return totalWinMoves / (double) wins;
     }
 
     public double getAvgWinTime() {
-        return avgWinTime;
+        return totalWinTime / (double) wins;
     }
 
     public void setAvgWinTime(double avgWinTime) {
         this.avgWinTime = avgWinTime;
+    }
+
+    public void updateWinStatistics(int tries, long duration) {
+        total++;
+        wins++;
+        totalWinTime += TimeUnit.SECONDS.convert(duration, TimeUnit.NANOSECONDS);
+        totalWinMoves += tries;
+    }
+
+    public void updateLoseStatistics() {
+        loses++;
+        total++;
     }
 
     //endregion

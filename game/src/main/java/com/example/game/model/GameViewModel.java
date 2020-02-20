@@ -36,17 +36,18 @@ public class GameViewModel {
     }
 
     public void play(int guess) {
+        long stop = System.nanoTime();
         tries++;
         if (secret == guess) {
+            statistics.updateWinStatistics(tries, stop - start);
             init();
             moves.add(new Move(guess, "You win!"));
-            //TODO: Update win statistics
         } else {
             if (tries >= 7) {
                 Move move = new Move(secret, "You lose!");
                 init();
                 moves.add(move);
-                //TODO: Update lose statistics
+                statistics.updateLoseStatistics();
             } else {
                 String message = "Pick larger!";
                 if (guess > secret)
