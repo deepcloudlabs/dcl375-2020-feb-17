@@ -20,6 +20,7 @@ public class GameViewModel {
     private GameStatistics statistics;
 
     public GameViewModel() {
+        System.err.println("=====================");
     }
 
     @PostConstruct
@@ -29,6 +30,7 @@ public class GameViewModel {
         start = System.nanoTime();
         secret = ThreadLocalRandom.current()
                 .nextInt(100) + 1;
+        System.err.println(secret);
     }
 
     public List<Move> getMoves() {

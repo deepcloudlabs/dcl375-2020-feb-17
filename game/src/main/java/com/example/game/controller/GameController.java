@@ -1,3 +1,4 @@
+
 package com.example.game.controller;
 
 import com.example.game.model.GameStatistics;
@@ -8,10 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.annotation.RequestScope;
 
 @Controller
-@RequestScope
 @RequestMapping("play")
 public class GameController {
     @Autowired
