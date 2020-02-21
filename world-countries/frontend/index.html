@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script type="text/javascript" src="js/lib/jquery-3.2.1.js"></script>
+	<script	type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lib/knockout-3.4.2.js"></script>
+    <script type="text/javascript" src="js/world.js"></script>
+
+    <title>World Countries</title>
+</head>
+<body>
+	<p>
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Search Panel</h3>
+			</div>
+			<div class="panel-body">
+					<div class="form-group">
+						<label for="continent" class="control-label">Continent:</label>
+						<select id="continent"
+								data-bind="options: continents, value: continent"
+								class="form-control"></select>
+					</div>
+					<div class="form-group">				
+	                   <button data-bind="click: list" class="btn btn-success">List</button>
+					</div>
+			</div>
+		</div>		
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Countries</h3>
+			</div>
+			<div class="panel-body">		
+				<table class="table table-responsive table-striped table-bordered table-hover table-condensed text-center">
+					<thead>
+						<tr class="info">
+							<th>Code</th>
+							<th>Name</th>
+							<th>Population</th>
+							<th>Surface Area</th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: {data: countries, as: 'cty'}">
+						<tr>
+							<td data-bind="text: cty.code"></td>
+							<td data-bind="text: cty.name"></td>
+							<td data-bind="text: cty.population"></td>
+							<td data-bind="text: cty.surfaceArea"></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+		</div>
+	</div>
+</body>
+</html>
